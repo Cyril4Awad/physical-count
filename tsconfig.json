@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "strict": false,
+    "strict": true,
     "module": "esnext",
     "target": "ES2020",
     "moduleResolution": "bundler",
@@ -16,7 +16,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*.tsx?"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "files": ["./references.d.ts"],
   "exclude": ["node_modules", "platforms"]
 }

@@ -4,19 +4,29 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@nativescript-community/sqlite": "3.5.9",
     "@nativescript/core": "~9.1.0",
+    "@valor/nativescript-websockets": "2.0.3",
+    "fast-xml-parser": "5.11.2",
     "react": "^18.2.0",
-    "react-nativescript": "^5.0.0",
-    "react-nativescript-navigation": "^5.0.0"
+    "react-nativescript": "^5.0.0"
   },
   "devDependencies": {
+    "@nativescript/android": "9.1.1",
     "@nativescript/types": "~9.0.0",
+    "@nativescript/unit-test-runner": "5.0.0",
     "@nativescript/webpack": "~5.0.28",
     "@types/react": "npm:types-react-without-jsx-intrinsics@^18.0.17",
-    "typescript": "~6.0.0"
+    "@vitest/runner": "4.1.11",
+    "typescript": "~6.0.0",
+    "vite": "^8.3.1",
+    "vitest": "4.1.11"
   },
   "scripts": {
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test:node": "vitest run --config vitest.node.config.mts",
+    "test:android": "ns test android",
+    "debug:live-download": "ns run android --no-hmr --env.liveDownload"
   },
   "overrides": {
     "@nativescript/core": "~9.1.0"

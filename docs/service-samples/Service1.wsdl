@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PullHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PullHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PullHeaderResult" type="tns:Headertems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Headertems">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mitemheader" type="tns:ArrayOfItemheader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemheader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="itemheader" nillable="true" type="tns:itemheader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="itemheader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_DateCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_MachUser1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_MachUser2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_MachUser3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_MachUser4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_Updated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pch_NbrItems" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserToUpdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SP_DecNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SP_Fashion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SP_Expiry" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PullDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usertocount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PullDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PullDetailsResult" type="tns:DetailItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DetailItems">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mitemdetail" type="tns:ArrayOfItemDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="itemDetail" nillable="true" type="tns:itemDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="itemDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_RecId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Loc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_stkId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Refernce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="stk_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Grid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_DetGrid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="exp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Batch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_DateCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Qty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_QtyCounted1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Type1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_QtyCounted2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Type2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_QtyCounted3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Type3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_QtyCounted4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pcd_Type4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usercounted" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PullPhyBarcodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PullPhyBarcodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PullPhyBarcodesResult" type="tns:Barcodes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Barcodes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mitemBarcode" type="tns:ArrayOfItemBarcode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemBarcode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="itemBarcode" nillable="true" type="tns:itemBarcode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="itemBarcode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PcBarc_RecId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcBarc_DRecId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PcBarc_Barcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uInvID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pcd_RecId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usercounted" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uUserToUpdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertScannedItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stk_recid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="STK_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stk_Desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usercounted" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertScannedItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertScannedItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitPullTables">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Extras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitPullTablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitPullTablesResult" type="tns:TableInfos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TableInfos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mTableInfo" type="tns:ArrayOfTableInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTableInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TableInfo" nillable="true" type="tns:TableInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TableInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowsCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalTableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastImportedRow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PullDisplayHeader" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InsertInto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PullFinished" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PullPreparedDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectedLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateTable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="pullRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PIndex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PSize" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartFromRow" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pullRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pullRecordsResult" type="tns:Records" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Records">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mRecords" type="tns:ArrayOfRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Record" nillable="true" type="tns:Record" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Record">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="valuesquery" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ClearPullTables">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SelectedLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearPullTablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClearPullTablesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="Headertems" nillable="true" type="tns:Headertems" />
+      <s:element name="DetailItems" nillable="true" type="tns:DetailItems" />
+      <s:element name="Barcodes" nillable="true" type="tns:Barcodes" />
+      <s:element name="TableInfos" nillable="true" type="tns:TableInfos" />
+      <s:element name="Records" nillable="true" type="tns:Records" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:PullHeader" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:PullHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:PullDetails" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:PullDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesSoapIn">
+    <wsdl:part name="parameters" element="tns:PullPhyBarcodes" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesSoapOut">
+    <wsdl:part name="parameters" element="tns:PullPhyBarcodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertDetail" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertScannedItem" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertScannedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesSoapIn">
+    <wsdl:part name="parameters" element="tns:InitPullTables" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesSoapOut">
+    <wsdl:part name="parameters" element="tns:InitPullTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:pullRecords" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:pullRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearPullTables" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearPullTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderHttpGetIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderHttpGetOut">
+    <wsdl:part name="Body" element="tns:Headertems" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsHttpGetIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="usertocount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DetailItems" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesHttpGetIn">
+    <wsdl:part name="recid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesHttpGetOut">
+    <wsdl:part name="Body" element="tns:Barcodes" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailHttpGetIn">
+    <wsdl:part name="transCount" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="uInvID" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Pcd_RecId" type="s:string" />
+    <wsdl:part name="usercounted" type="s:string" />
+    <wsdl:part name="uUserToUpdate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemHttpGetIn">
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="stk_recid" type="s:string" />
+    <wsdl:part name="STK_ref" type="s:string" />
+    <wsdl:part name="stk_Desc" type="s:string" />
+    <wsdl:part name="barcode" type="s:string" />
+    <wsdl:part name="usercounted" type="s:string" />
+    <wsdl:part name="fname" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesHttpGetIn">
+    <wsdl:part name="ApplicationName" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+    <wsdl:part name="Extras" type="s:string" />
+    <wsdl:part name="DeviceInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesHttpGetOut">
+    <wsdl:part name="Body" element="tns:TableInfos" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsHttpGetIn">
+    <wsdl:part name="TableName" type="s:string" />
+    <wsdl:part name="PIndex" type="s:string" />
+    <wsdl:part name="PSize" type="s:string" />
+    <wsdl:part name="StartFromRow" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsHttpGetOut">
+    <wsdl:part name="Body" element="tns:Records" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesHttpGetIn">
+    <wsdl:part name="ApplicationName" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderHttpPostIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullHeaderHttpPostOut">
+    <wsdl:part name="Body" element="tns:Headertems" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsHttpPostIn">
+    <wsdl:part name="recid" type="s:string" />
+    <wsdl:part name="usertocount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DetailItems" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesHttpPostIn">
+    <wsdl:part name="recid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PullPhyBarcodesHttpPostOut">
+    <wsdl:part name="Body" element="tns:Barcodes" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailHttpPostIn">
+    <wsdl:part name="transCount" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="uInvID" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Pcd_RecId" type="s:string" />
+    <wsdl:part name="usercounted" type="s:string" />
+    <wsdl:part name="uUserToUpdate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertDetailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemHttpPostIn">
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="stk_recid" type="s:string" />
+    <wsdl:part name="STK_ref" type="s:string" />
+    <wsdl:part name="stk_Desc" type="s:string" />
+    <wsdl:part name="barcode" type="s:string" />
+    <wsdl:part name="usercounted" type="s:string" />
+    <wsdl:part name="fname" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertScannedItemHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesHttpPostIn">
+    <wsdl:part name="ApplicationName" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+    <wsdl:part name="Extras" type="s:string" />
+    <wsdl:part name="DeviceInfo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitPullTablesHttpPostOut">
+    <wsdl:part name="Body" element="tns:TableInfos" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsHttpPostIn">
+    <wsdl:part name="TableName" type="s:string" />
+    <wsdl:part name="PIndex" type="s:string" />
+    <wsdl:part name="PSize" type="s:string" />
+    <wsdl:part name="StartFromRow" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pullRecordsHttpPostOut">
+    <wsdl:part name="Body" element="tns:Records" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesHttpPostIn">
+    <wsdl:part name="ApplicationName" type="s:string" />
+    <wsdl:part name="SelectedLocation" type="s:string" />
+    <wsdl:part name="MachineName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearPullTablesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <wsdl:input message="tns:PullHeaderSoapIn" />
+      <wsdl:output message="tns:PullHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <wsdl:input message="tns:PullDetailsSoapIn" />
+      <wsdl:output message="tns:PullDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <wsdl:input message="tns:PullPhyBarcodesSoapIn" />
+      <wsdl:output message="tns:PullPhyBarcodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <wsdl:input message="tns:InsertDetailSoapIn" />
+      <wsdl:output message="tns:InsertDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <wsdl:input message="tns:InsertScannedItemSoapIn" />
+      <wsdl:output message="tns:InsertScannedItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <wsdl:input message="tns:InitPullTablesSoapIn" />
+      <wsdl:output message="tns:InitPullTablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <wsdl:input message="tns:pullRecordsSoapIn" />
+      <wsdl:output message="tns:pullRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <wsdl:input message="tns:ClearPullTablesSoapIn" />
+      <wsdl:output message="tns:ClearPullTablesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <wsdl:input message="tns:PullHeaderHttpGetIn" />
+      <wsdl:output message="tns:PullHeaderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <wsdl:input message="tns:PullDetailsHttpGetIn" />
+      <wsdl:output message="tns:PullDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <wsdl:input message="tns:PullPhyBarcodesHttpGetIn" />
+      <wsdl:output message="tns:PullPhyBarcodesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <wsdl:input message="tns:InsertDetailHttpGetIn" />
+      <wsdl:output message="tns:InsertDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <wsdl:input message="tns:InsertScannedItemHttpGetIn" />
+      <wsdl:output message="tns:InsertScannedItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <wsdl:input message="tns:InitPullTablesHttpGetIn" />
+      <wsdl:output message="tns:InitPullTablesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <wsdl:input message="tns:pullRecordsHttpGetIn" />
+      <wsdl:output message="tns:pullRecordsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <wsdl:input message="tns:ClearPullTablesHttpGetIn" />
+      <wsdl:output message="tns:ClearPullTablesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <wsdl:input message="tns:PullHeaderHttpPostIn" />
+      <wsdl:output message="tns:PullHeaderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <wsdl:input message="tns:PullDetailsHttpPostIn" />
+      <wsdl:output message="tns:PullDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <wsdl:input message="tns:PullPhyBarcodesHttpPostIn" />
+      <wsdl:output message="tns:PullPhyBarcodesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <wsdl:input message="tns:InsertDetailHttpPostIn" />
+      <wsdl:output message="tns:InsertDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <wsdl:input message="tns:InsertScannedItemHttpPostIn" />
+      <wsdl:output message="tns:InsertScannedItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <wsdl:input message="tns:InitPullTablesHttpPostIn" />
+      <wsdl:output message="tns:InitPullTablesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <wsdl:input message="tns:pullRecordsHttpPostIn" />
+      <wsdl:output message="tns:pullRecordsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <wsdl:input message="tns:ClearPullTablesHttpPostIn" />
+      <wsdl:output message="tns:ClearPullTablesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <soap:operation soapAction="http://tempuri.org/PullHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <soap:operation soapAction="http://tempuri.org/PullDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <soap:operation soapAction="http://tempuri.org/PullPhyBarcodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <soap:operation soapAction="http://tempuri.org/InsertDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <soap:operation soapAction="http://tempuri.org/InsertScannedItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <soap:operation soapAction="http://tempuri.org/InitPullTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <soap:operation soapAction="http://tempuri.org/pullRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <soap:operation soapAction="http://tempuri.org/ClearPullTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <soap12:operation soapAction="http://tempuri.org/PullHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <soap12:operation soapAction="http://tempuri.org/PullDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <soap12:operation soapAction="http://tempuri.org/PullPhyBarcodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <soap12:operation soapAction="http://tempuri.org/InsertDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <soap12:operation soapAction="http://tempuri.org/InsertScannedItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <soap12:operation soapAction="http://tempuri.org/InitPullTables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <soap12:operation soapAction="http://tempuri.org/pullRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <soap12:operation soapAction="http://tempuri.org/ClearPullTables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <http:operation location="/PullHeader" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <http:operation location="/PullDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <http:operation location="/PullPhyBarcodes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <http:operation location="/InsertDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <http:operation location="/InsertScannedItem" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <http:operation location="/InitPullTables" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <http:operation location="/pullRecords" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <http:operation location="/ClearPullTables" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullHeader">
+      <http:operation location="/PullHeader" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullDetails">
+      <http:operation location="/PullDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PullPhyBarcodes">
+      <http:operation location="/PullPhyBarcodes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDetail">
+      <http:operation location="/InsertDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScannedItem">
+      <http:operation location="/InsertScannedItem" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitPullTables">
+      <http:operation location="/InitPullTables" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pullRecords">
+      <http:operation location="/pullRecords" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPullTables">
+      <http:operation location="/ClearPullTables" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:2812/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:2812/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://localhost:2812/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://localhost:2812/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

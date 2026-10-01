@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Release (REBUILD_PLAN §9.1): plain http:// to any host, like the legacy app.
+     Each location's service address is typed in Settings, so no host list is built in. -->
 <network-security-config>
   <base-config cleartextTrafficPermitted="true">
     <trust-anchors>
       <certificates src="system" />
-      <certificates src="user" />
     </trust-anchors>
   </base-config>
-  <domain-config cleartextTrafficPermitted="true">
-    <domain includeSubdomains="true">localhost</domain>
-    <domain includeSubdomains="true">127.0.0.1</domain>
-    <domain includeSubdomains="true">10.0.2.2</domain>
-  </domain-config>
 </network-security-config>
-
-

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><pullRecords xmlns="http://tempuri.org/"><TableName>_ERPDATACOLLECTOR_tbl_PhysicalCountDetBarcode_V2UN3</TableName><PIndex>0</PIndex><PSize>5000</PSize><StartFromRow>1</StartFromRow></pullRecords></soap:Body></soap:Envelope>

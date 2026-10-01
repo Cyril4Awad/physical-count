@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'org.nativescript.physicalcount',
+  id: 'com.physicalcount',
   appPath: 'src',
   appResourcesPath: 'App_Resources',
   android: {

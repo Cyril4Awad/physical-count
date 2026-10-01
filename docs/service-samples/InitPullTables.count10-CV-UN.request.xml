@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><InitPullTables xmlns="http://tempuri.org/"><ApplicationName>ERPDATACOLLECTOR</ApplicationName><SelectedLocation>CV</SelectedLocation><MachineName>UN</MachineName><Extras>10</Extras><DeviceInfo>Device Model: rebuild-test
+Device Manufacturer: local
+Device Brand: local
+</DeviceInfo></InitPullTables></soap:Body></soap:Envelope>

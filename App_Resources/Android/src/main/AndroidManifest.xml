@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	package="__PACKAGE__">
 
 	<supports-screens
@@ -8,10 +9,15 @@
 		android:largeScreens="true"
 		android:xlargeScreens="true"/>
 
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+	<!-- Only INTERNET and ACCESS_NETWORK_STATE are needed (REBUILD_PLAN §9.5). These three are added by
+	     the manifest merger: the SQLite plugin's aar declares no targetSdkVersion, so Android implies
+	     them for it, and NativeScript's widgets library adds the storage ones for API 28 and older. -->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
 
 	<application
 		android:name="com.tns.NativeScriptApplication"
@@ -28,7 +34,8 @@
 			android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|locale|uiMode"
 			android:theme="@style/LaunchScreenTheme"
 			android:hardwareAccelerated="true"
-      		android:launchMode="singleTask"
+			android:launchMode="singleTask"
+			android:screenOrientation="portrait"
 			android:exported="true">
 
 			<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />
